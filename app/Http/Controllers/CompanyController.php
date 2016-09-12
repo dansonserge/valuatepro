@@ -171,7 +171,7 @@ public function postProjcust(Request $request){
               else{
 
                     $project=Employerproject::find($request->project_id);
-
+                        
                           if($request->category_property_id==null){
                             return redirect()->back()->with('error','Please choose a property category')->withInput();
 
@@ -190,11 +190,13 @@ public function postProjcust(Request $request){
                              'sector'=> $request->sector,
                              'village'=>$request->village,
                              'category_property_id'=>$request->category_property_id
+
                             ];
+
                             $project->update($projdata);
 
                             $intendeduse=new Intendeduse;
-
+         
                             return redirect('executivesummaryview/'.$request->project_id);
 
 
@@ -530,6 +532,9 @@ public function postConstructiondetailsview(Request $request){
                     ->with('reg_no_in_certified_valuers',$certified_valuer_obj[0]->reg_no_in_certified_valuers)
 
                     ->with('category_property_id',$project[0]->category_property_id)
+                    ->with('created_time',$project[0]->created_time)
+
+
 
 
 

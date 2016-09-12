@@ -245,7 +245,7 @@
 				    <tr>
 				      <td>Valuation report number : <b>confused about that number!</b></td>
 				      
-				      <td colspan="2">Date: <b>not found in a database</b> </td>
+				      <td colspan="2">Date: <b>{{$created_time}}</b> </td>
 				    </tr>
 				    <tr>
 				      <td rowspan="2"></br>Property Identification</td>

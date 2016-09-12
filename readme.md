@@ -1,10 +1,6 @@
 # ValuatePro
 
-[![Build Status](Passing)
-[![Total Downloads](9999)
-[![Latest Stable Version](1)
-[![Latest Unstable Version](0)
-[![License](BeWideRwanda)
+
 
 ValuatePro is a software that helps...
 

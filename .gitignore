@@ -1,6 +1,6 @@
 /vendor
 /node_modules
-/public/storage
+/public/images/employerprojectsimages
 Homestead.yaml
 Homestead.json
 .env

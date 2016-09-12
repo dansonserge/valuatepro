@@ -1,9 +1,4 @@
-/*--
-Author: W3Layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
---*/
+
 
 /*-- Reset Code --*/
 body {
@@ -26,6 +21,37 @@ body a:hover {
 body a:focus, a:hover {
 	text-decoration: none;
 }
+
+
+@media screen and (max-width: 400px) {
+    
+}
+
+@media screen and (min-width: 401px) and (max-width: 720px) {
+	body {
+        background-color: lightgreen;
+    }
+    
+}
+
+@media screen and (min-width: 721px) and (max-width: 1280px) {
+    
+}
+
+@media screen and (min-width: 1281px) and (max-width: 1440px) {
+    
+}
+
+@media screen and (min-width: 1441px) and (max-width: 1920px) {
+    
+}
+
+@media screen and (min-width: 1921px) {
+    
+}
+
+
+
 input[type="button"], input[type="submit"] {
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
@@ -87,8 +113,6 @@ img {
 	height:130px;
 	width:130px;
 	margin-top:-25px;
-
-
 }
 .logo:hover {
 	
@@ -972,6 +996,8 @@ p.stats-info {
 /*-- Clients --*/
 .clients {
 	padding-bottom: 80px;
+
+	
 }
 .clients .heading-underline {
 	margin-bottom: 70px;

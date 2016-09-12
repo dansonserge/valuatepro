@@ -1,0 +1,35 @@
+.forgotpass{
+	padding-left: 30px;
+	padding-bottom: 20px;
+}
+.signup_privacy{
+	padding-left: 30px;
+	padding-bottom: 20px;
+
+}
+ .notifications{
+ 	text-align: center;
+ }
+
+
+
+.btn-primary,
+.btn-primary:visited,
+.btn-primary:active,
+.btn-primary:focus   
+ {
+    background-color: #006177;
+    border-color:#7ABE47 ;
+
+}
+
+.btn-primary:hover{
+	 background-color: #7ABE47;
+    border-color:#006177 ;
+
+}
+
+
+
+
+

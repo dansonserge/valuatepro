@@ -25,7 +25,7 @@
       
 <!--start calendar code-->
 
-                     {{ Form::text('date',null,array('id'=>'date','class'=>'form-control form-control1','placeholder'=>'MM/DD/YYYY'))}}
+                     {{ Form::text('created_time',null,array('id'=>'date','class'=>'form-control form-control1','placeholder'=>'MM/DD/YYYY'))}}
                      
                      <label for="date" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
                     </label>
@@ -53,7 +53,7 @@
 
 <script>
   $(document).ready(function(){
-    var date_input=$('input[name="date"]'); //our date input has the name "date"
+    var date_input=$('input[name="created_time"]'); //our date input has the name "date"
     var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
     date_input.datepicker({
       format: 'mm/dd/yyyy',

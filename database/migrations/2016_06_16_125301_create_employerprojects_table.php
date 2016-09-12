@@ -81,10 +81,11 @@ class CreateEmployerprojectsTable extends Migration
              $table->boolean('is_job_providers')->default(0);
              $table->boolean('is_sporting_facility')->default(0);
              $table->boolean('is_play_ground')->default(0);
+       
              
 
              
-             $table->date('created_time')->nullable();
+             $table->string('created_time')->nullable();
              $table->timestamps();
         }); 
 

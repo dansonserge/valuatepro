@@ -9,7 +9,7 @@
 
   <table class="table table-hover">
     <tr>
-  {{Form::open(array('url'=>'uploadpicture','files'=>true))}}
+  {{Form::open(array('url'=>'euploadpicture','files'=>true))}}
       <td>
   {{Form::hidden('project_id',$projectId)}}
 
@@ -37,7 +37,7 @@
 
 @foreach($projectimages as $projectimage)
   <div class="col-md-4">
-    {{Form::open(array('url'=>'cmp/deletepicture'))}}
+    {{Form::open(array('url'=>'emp/deletepicture'))}}
      {{Form::hidden('picture_id',$projectimage->id)}}
     
  <button class="btn delete_btn delete_pic"> <i class="fa fa-times fa-lg" aria-hidden="true"></i></button>
@@ -56,11 +56,11 @@
               <div class="col-sm-4">
         
         </div>
-{{ Form::open(array('url'=>'cmp/valuationview')) }}  
+{{ Form::open(array('url'=>'emp/valuationview')) }}  
               
       {{Form::hidden('projectId',$projectId)}}
         <div class="col-sm-4">
-                <a class="btn btn-primary next_section" href='{{URL::to("cmp/constructioncompositionback/$projectId")}}'>
+                <a class="btn btn-primary next_section" href='{{URL::to("emp/constructioncompositionback/$projectId")}}'>
                  <i class=" fa fa-arrow-circle-left fa-lg" aria-hidden="true"></i>  Back
                  
 

@@ -9,7 +9,7 @@
 
  <div class="row">
 
-     {{Form::open(array('url'=>'cmp/constructiondetails'))}}
+     {{Form::open(array('url'=>'emp/constructiondetails'))}}
           <div class="control-group">
 
 

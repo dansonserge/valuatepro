@@ -15,11 +15,22 @@ class CreateEmployeeprojectsTable extends Migration
         Schema::create('employeeprojects', function (Blueprint $table) {
             $table->increments('id');
             
-
+           
             $table->integer('employee_id')->unsigned();
+            $table->integer('company_id')->nullable()->unsigned();
+
+             $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email')->nullable();
+            $table->string('id_card');
+            
+            $table->string('telephone');
+            
           
             $table->integer('category_property_id')->nullable()->unsigned();
             $table->integer('intended_use_id')->nullable()->unsigned();
+
+
 
              $table->string('province')->nullable();
              $table->string('district')->nullable();
@@ -37,19 +48,11 @@ class CreateEmployeeprojectsTable extends Migration
              $table->string('area')->nullable();
              $table->string('physical_conditions')->nullable();
              $table->string('established_values')->nullable();
-             $table->string('main_residentail_size')->nullable();
-             $table->string('annex_size')->nullable();
-             $table->string('plot_size')->nullable();
-
-             $table->boolean('submited')->nullable()->default(0);
-             $table->integer('validation')->nullable()->default(0);
-      
-
-             $table->integer('project_status')->nullable()->default(0);
-
-
+            
 
              $table->string('land_value')->nullable();
+
+             $table->integer('project_status')->nullable();
 
              $table->boolean('is_open_market_value')->default(0);
 
@@ -59,14 +62,41 @@ class CreateEmployeeprojectsTable extends Migration
 
              $table->string('construction_details_mainresidentials')->nullable();
              $table->string('construction_details_annexes')->nullable();
+               
+              $table->string('cons_composition_details_mainresidentials')->nullable();
+             $table->string('cons_composition_details_annexes')->nullable();
+              
+             $table->boolean('is_tarmac_main_road')->default(0);
+             $table->boolean('is_tertiary_tarmac_road')->default(0);
+             $table->boolean('is_storm_water')->default(0);
+             $table->boolean('is__waste_water')->default(0);
+             $table->boolean('is_power_supply')->default(0);
+             $table->boolean('is_water_supply')->default(0);
+             $table->boolean('is_fire_hydrant')->default(0);
+             $table->boolean('is_fiber_optic')->default(0);
+             $table->boolean('is_public_transport')->default(0);
+             $table->boolean('is_shopping_center')->default(0);
+             $table->boolean('is_nursery_school')->default(0);
+             $table->boolean('is_secondary_school')->default(0);
+             $table->boolean('is_university')->default(0);
+             $table->boolean('is_job_providers')->default(0);
+             $table->boolean('is_sporting_facility')->default(0);
+             $table->boolean('is_play_ground')->default(0);
+             $table->integer('unit_price')->nullable()->default(0);
+
+            
+
+
+             $table->integer('current_year')->nullable()->default(0);
+             $table->integer('construction_year')->nullable()->default(0);
+             $table->integer('Property_duration')->nullable()->default(0);
+             
 
              
-             
-             $table->date('created_time')->nullable();
+             $table->string('created_time')->nullable();
              $table->timestamps();
         }); 
 
-        
         Schema::table('employeeprojects',function(Blueprint $table){
             $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade')->onUpdate('cascade');
         });

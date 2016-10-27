@@ -9,14 +9,15 @@ class Annex extends Model
    
 	protected $table='annexes';
     protected $fillable = [
-      'project_id','area'
+      'project_id','area','construction_year'
     ];
 
 
     public static $rules = [
     
      'project_id'=>'required', 
-     'area'=>'required'
+     'area'=>'required',
+     'construction_year'=>'required'
   ];
    
     protected static function validate($data){

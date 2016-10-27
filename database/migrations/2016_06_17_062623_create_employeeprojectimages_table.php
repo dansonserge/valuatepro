@@ -16,6 +16,8 @@ class CreateEmployeeprojectimagesTable extends Migration
             $table->increments('id');
             $table->integer('project_id')->unsigned();
             $table->string('image');
+            $table->timestamps();
+
 
         });
         Schema::table('employeeprojectimages', function(Blueprint $table){

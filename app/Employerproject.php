@@ -62,6 +62,10 @@ protected $table='employerprojects';
         'is_job_providers', 
         'is_sporting_facility', 
         'is_play_ground',
+        'unit_price',
+        'current_year',
+        'construction_year',
+        'Property_duration',
 
         'construction_details_mainresidentials',
         'construction_details_annexes',

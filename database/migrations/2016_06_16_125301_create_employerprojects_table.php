@@ -81,7 +81,14 @@ class CreateEmployerprojectsTable extends Migration
              $table->boolean('is_job_providers')->default(0);
              $table->boolean('is_sporting_facility')->default(0);
              $table->boolean('is_play_ground')->default(0);
-       
+             $table->integer('unit_price')->nullable()->default(0);
+
+            
+
+
+             $table->integer('current_year')->nullable()->default(0);
+             $table->integer('construction_year')->nullable()->default(0);
+             $table->integer('Property_duration')->nullable()->default(0);
              
 
              

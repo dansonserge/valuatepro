@@ -74,14 +74,15 @@
 					</button>
 					<!-- Logo -->
 					<div class="logo">
-						<a class="navbar-brand button" href="#"><img  src="images/valuateprologo.gif" alt="ValuatePro Logo"></a>
+						
+	<img src="images/valuateprologo.gif" class="img-responsive" alt="ValuatePro Logo">
 						 
 
 					</div>
 					<!-- //Logo -->
 
 				</div>
-				<div id="navbar" class="navbar-collapse navbar-right collapse col-md-6">
+				<div id="navbar" class="navbar-collapse navbar-right collapse ">
                @include('common.notification')
 
               
@@ -126,7 +127,7 @@
 							<h5>RESPONSIVE</h5>
 
 							<div class="border"></div>
-							<p>We are responsive and take responsive action. We say what we mean, we do what we say</p>
+							<p>We are responsive and take responsive action. </p>
 						</div>
 					</div>
 				</div>
@@ -144,7 +145,7 @@
 						</h4><br>
 							<h5>INTEGRITY</h5>
 							<div class="border"></div>
-							<p>We act with honor,honesty, and fairness and we hold ourselves to the highest ethical standards.</p>
+							<p>We act with honor,honesty, and fairness.</p>
 						</div>
 					</div>
 				</div>
@@ -152,17 +153,18 @@
 					<img class="third-slide" src="images/1..png" alt="Cubicle">
 					<div class="slider-grid-bg">
 						<div class="slider-grid-text">
-							<h4>
+						<h4>
 					@if(auth()->guard('employers')->check())
                     <a class=" btn btn-primary next_section" href="{{ URL::to('cmp/index')}}"><i class="fa fa-user" aria-hidden="true">&nbsp; My account</i></a>
                     @endif
                     @if(Auth::check())
                     <a class="btn btn-primary next_section" href="{{ URL::to('emp/index')}}"><i class="fa fa-user" aria-hidden="true">&nbsp; My account</i></a>
                     @endif
-						</h4><br>
+						</h4>
+						<br>
 							<h5>CUSTOMERS FOCUSED</h5>
 							<div class="border"></div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
 						</div>
 					</div>
 				</div>
@@ -180,7 +182,7 @@
 						</h4><br>
 							<h5>COLLABORATION</h5>
 							<div class="border"></div>
-							<p>We support each other internally and externally to achieve our collective goals</p>
+							<p>We support each other internally and externally .</p>
 						</div>
 					</div>
 				</div>
@@ -845,44 +847,39 @@ We’ll walk you through the full Software life cycle, from arrival in your Comp
 <h4 class="slideanim">You can also access ValuatePro in differenet platforms:</h4>
 
 
-
-
-				
-				
-
-
-
-
 				<div class="skills-numbers slideanim">
+				<div class="device">
 					<div class="num1 slideanim">
 						<div class="num-rotate">
 							<div class='numscroller'><i class="fa fa-android fa-2x" aria-hidden="true"></i></div>
 						</div>
 						<h4>Android Devices</h4>
 					</div>
+				</div>
+					<div class="device">
 					<div class="num1 slideanim">
 						<div class="num-rotate">
 							<div class='numscroller'><i class="fa fa-apple fa-2x" aria-hidden="true"></i></div>
 						</div>
 						<h4>Apple Devices</h4>
 					</div>
-					<div class="num1 slideanim">
+					</div>
+
+					<div class="device">
+					<div class="num1 slideanim ">
 						<div class="num-rotate">
 							<div class='numscroller'><i class="fa fa-windows fa-2x" aria-hidden="true"></i></div>
 						</div>
 						<h4>Windows Devices</h4>
 					</div>
-					<div class="num1 slideanim">
-						<div class="num-rotate">
-							<div class='numscroller'><i class="fa fa-tablet fa-2x" aria-hidden="true"></i></div>
-						</div>
-						<h4>Tablets</h4>
 					</div>
+					<div class="device">
 					<div class="num1 slideanim">
 						<div class="num-rotate">
 							<div class='numscroller'><i class="fa fa-desktop fa-2x" aria-hidden="true"></i></div>
 						</div>
 						<h4>Desktops</h4>
+					</div>
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -908,27 +905,27 @@ We’ll walk you through the full Software life cycle, from arrival in your Comp
 
 
 <div class="col-md-12">
-<div class="col-md-6 login">
+<div class="col-xs-6 login">
 <h3 class="slideanim">Login </h3>
 <div class="heading-underline1"></div>
- <p>If you are a registered certified valuer, please login<br>
-<button class="more_btn cert_login">Certified Valuer</button><br><br>
-If you are a registered valuer,please login <br>
-<button class="more_btn valuer_login">Valuer</button></p>
+ <p>If you are a certified valuer, login<br>
+<button class="more_btn cert_login btn-responsive">Certified Valuer</button><br><br>
+If you are a registered valuer, login <br>
+<button class="more_btn valuer_login btn-responsive">Valuer</button></p>
 
 
 	
 </div>
 
 
-<div class="col-md-6 register">
+<div class="col-xs-6 register">
 <h3 class="slideanim">Register </h3>
 <div class="heading-underline1"></div>
 
-<p>If you are a certified valuer, please register<br>
-<button class="more_btn cert_register">Certified Valuer</button><br><br>
-If you are a registered valuer, please register <br>
-<button class="more_btn valuer_register">Valuer</button></p>
+<p>If you are a certified valuer, register<br>
+<button class="more_btn cert_register btn-responsive">Certified Valuer</button><br><br>
+If you are a registered valuer, register <br>
+<button class="more_btn valuer_register btn-responsive">Valuer</button></p>
 
 
 

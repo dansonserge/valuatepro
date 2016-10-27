@@ -71,12 +71,13 @@ class CompanyController extends Controller{
      
     public function getIndex(){
     return view('company.index')->with('title','Dashboard');
+      }
 
-  }
-public function getSigninview(){
+
+   public function getSigninview(){
     return view('company.signin')->with('title','Log in');
+     }
 
-  }
   public function postSignin(Request $request){
                $cmp= auth()->guard('employers');
          if( $cmp->attempt(array('email'=>$request->email,'password'=>$request->password))){
@@ -99,12 +100,24 @@ public function getSigninview(){
 
   public function getNewproject(){
 
-    return view('company.newproject')->with('title','New project');
+
+     
+
+    return view('company.newproject')->with('title','New project')
+
+      ->with('first_name','')
+      ->with('last_name','')
+      ->with('email','')
+      ->with('telephone','')
+      ->with('id_card','')
+      ->with('projectId','');
+    
   }
 
 
 
 public function postProjcust(Request $request){
+
     $validation=employerproject::validate($request->all());
           if($validation->fails()){
 
@@ -122,8 +135,8 @@ public function postProjcust(Request $request){
                             'last_name'=> $request->last_name,
                             'telephone'=>$request->telephone,
                             'email'=> $request->email,
-                            'id_card'=> $request->id_card
-                     
+                            'id_card'=> $request->id_card,
+                            'current_year'=>date('Y')
                            ];
                  
 
@@ -143,12 +156,16 @@ public function postProjcust(Request $request){
    $propertycategories= new Propertycategory;
 
    $names=Employerproject::where('id',$id)->get();
+   $project=Employerproject::where('id',$id)->get();
      
 
   return view('company.project_description',['propertycategories'=>$propertycategories])
   ->with('projectId',$id)
   ->with('title','Property Description')
-  ->with('names', $names[0]->first_name.' '.$names[0]->last_name);
+  ->with('names', $names[0]->first_name.' '.$names[0]->last_name)
+  ->with('date','')
+  ->with('plot_no',$project[0]->plot_no)
+  ->with('upi_no',$project[0]->upi_no);
   
 }
 
@@ -170,6 +187,10 @@ public function postProjcust(Request $request){
           }
               else{
 
+
+          
+
+
                     $project=Employerproject::find($request->project_id);
                         
                           if($request->category_property_id==null){
@@ -190,6 +211,7 @@ public function postProjcust(Request $request){
                              'sector'=> $request->sector,
                              'village'=>$request->village,
                              'category_property_id'=>$request->category_property_id
+                             
 
                             ];
 
@@ -208,7 +230,9 @@ public function postProjcust(Request $request){
     $intendeduse=new Intendeduse;
     return view('company.executive_summary',['intendeduses'=> $intendeduse])
     ->with('title','Executive Summary')
-    ->with('projectId', $id);
+    ->with('projectId', $id)
+    ->with('area','area');
+
   }
 
 
@@ -240,19 +264,35 @@ public function getPropertydetailsview($id){
    $mainresidential= new Mainresidential;
 
    $annex=new Annex;
-   $plot_size= Employerproject::where('id',$id)->get();
+
+   $project= Employerproject::where('id',$id)->get();
+
+   
 
   
    
         $mainresidential= $mainresidential->where('project_id',$id)->get();
 
          $annex=$annex->where('project_id',$id)->get();
-    return view('company.property_details',['mainresidentials'=>$mainresidential,'annexes'=>$annex])->with('title','Property Details')
- ->with('projectId', $id)->with('area', $plot_size[0]->area)->with('title','Property Details');
+
+         
+
+    return view('company.property_details',['mainresidentials'=>$mainresidential,'annexes'=>$annex])
+    ->with('title','Property Details')
+ ->with('projectId', $id)
+ ->with('area', $project[0]->area)
+ ->with('current_year',$project[0]->current_year)
+ ->with('title','Property Details');
+ 
+   
+
+
 
   }
 
   public function postAddmainresidential(Request $request){
+
+
           $project= new Mainresidential;
       
     $area = $request->height* $request->width;
@@ -260,6 +300,7 @@ public function getPropertydetailsview($id){
    $projdata=[
    'area'=>$area,
    'project_id'=>$request->project_id,
+   'construction_year'=>$request->construction_year
   ];
 
    $project->create($projdata);
@@ -270,11 +311,14 @@ public function getPropertydetailsview($id){
   public function postAddannex(Request $request){
           $project= new Annex;
       
+
     $area = $request->height* $request->width;
 
    $projdata=[
    'area'=>$area,
    'project_id'=>$request->project_id,
+    'construction_year'=>$request->construction_year
+
   ];
 
    $project->create($projdata);
@@ -340,9 +384,11 @@ public function postConstructiondetailsview(Request $request){
 
   }
 
+
+
   public function postSituationlocation(Request $request){
      $project=employerproject::find($request->project_id);
-
+         
    $projdata=[
    
    'is_tarmac_main_road'=>$request->is_tarmac_main_road,
@@ -360,7 +406,12 @@ public function postConstructiondetailsview(Request $request){
    'is_university'=>$request->is_university,
    'is_job_providers'=>$request->is_job_providers,
    'is_sporting_facility'=>$request->is_sporting_facility,
-   'is_play_ground'=>$request->is_play_ground 
+   'is_play_ground'=>$request->is_play_ground,
+   'unit_price'=>$request->unit_price,
+   'current_year'=>$request->current_year,
+   'construction_year'=>$request->construction_year,
+   'Property_duration'=>$request->Property_duration
+
      
        ];
 
@@ -452,6 +503,16 @@ public function postConstructiondetailsview(Request $request){
 
     }
 
+
+
+public function postValuationview(Request $request){
+
+return view('company.valuation')->with('projectId',$request->projectId)->with('title','Valuation');
+
+
+
+
+}
         public function postProjectview(Request $request){
            
            $project= Employerproject::where('id',$request->projectId)->get();
@@ -463,7 +524,9 @@ public function postConstructiondetailsview(Request $request){
           
              
          
-          
+          $mainresidentialareasum= Mainresidential::where('project_id',$request->projectId)->sum('area');
+
+          $annexareasum= Annex::where('project_id',$request->projectId)->sum('area');
           
               
 
@@ -533,6 +596,25 @@ public function postConstructiondetailsview(Request $request){
 
                     ->with('category_property_id',$project[0]->category_property_id)
                     ->with('created_time',$project[0]->created_time)
+                    ->with('unit_price',$project[0]->unit_price)
+
+                    ->with('mainresidentialareasum',$mainresidentialareasum)
+                    ->with('annexareasum',$annexareasum)
+
+                    ->with('current_year',$project[0]->current_year)
+                    ->with('construction_year',$project[0]->construction_year)
+                    ->with('Property_duration',$project[0]->Property_duration)
+
+    
+
+
+
+
+
+
+
+ 
+
 
 
 
@@ -546,5 +628,151 @@ public function postConstructiondetailsview(Request $request){
 
               ;
         }
+
+        public function getConstructioncompositionback($id){
+               
+              $project=Employerproject::where('id',$id)->get();
+
+ return view('company.construction_composition')->with('title','Contruction Composition')
+      ->with('projectId',$id)
+      ->with('title','Construction Composition')
+
+      ->with('cons_composition_details_mainresidentials',$project[0]->cons_composition_details_mainresidentials)
+      ->with('cons_composition_details_annexes',$project[0]->cons_composition_details_annexes);
+      
+        }
+
+
+
+
+       public function getSituationlocationback($id){
+          $project=Employerproject::where('id',$id)->get();
+
+ return view('company.situation_location')->with('title','Situation location')
+      ->with('projectId',$id)
+      ->with('title','Situation location')
+
+      ->with('is_tarmac_main_road',$project[0]->is_tarmac_main_road)
+      ->with('is_tertiary_tarmac_road',$project[0]->is_tertiary_tarmac_road)
+      ->with('is_storm_water',$project[0]->is_storm_water)
+      ->with('is__waste_water',$project[0]->is__waste_water)
+      ->with('is_power_supply',$project[0]->is_power_supply)
+      ->with('is_water_supply',$project[0]->is_water_supply)
+      ->with('is_fire_hydrant',$project[0]->is_fire_hydrant)
+      ->with('is_fiber_optic',$project[0]->is_fiber_optic)
+      ->with('is_public_transport',$project[0]->is_public_transport)
+      ->with('is_shopping_center',$project[0]->is_shopping_center)
+      ->with('is_nursery_school',$project[0]->is_nursery_school)
+      ->with('is_secondary_school',$project[0]->is_secondary_school)
+      ->with('is_university',$project[0]->is_university)
+      ->with('is_job_providers',$project[0]->is_job_providers)
+      ->with('is_sporting_facility',$project[0]->is_sporting_facility)
+      ->with('is_play_ground',$project[0]->is_play_ground);
+
+        }
+
+
+
+
+        public function getConstructiondetailsback($id){
+          $project=Employerproject::where('id',$id)->get();
+
+ return view('company.construction_details')->with('title','Contruction Details')
+      ->with('projectId',$id)
+      ->with('title','Construction Details')
+
+      ->with('construction_details_mainresidentials',$project[0]->construction_details_mainresidentials)
+      ->with('construction_details_annexes',$project[0]->construction_details_annexes);
+      
+
+        }
+
+
+
+                public function getPropertydetailsback($id){
+          $project=Employerproject::where('id',$id)->get();
+
+
+        $mainresidential= new Mainresidential;
+
+         $annex=new Annex;
+
+         $project= Employerproject::where('id',$id)->get();
+
+        $mainresidential= $mainresidential->where('project_id',$id)->get();
+
+         $annex=$annex->where('project_id',$id)->get();
+
+         
+
+    return view('company.property_details',['mainresidentials'=>$mainresidential,'annexes'=>$annex])
+    ->with('title','Property Details')
+ ->with('projectId', $id)
+ ->with('area', $project[0]->area)
+ ->with('current_year',$project[0]->current_year)
+ ->with('title','Property Details');
+ 
+
+      }
+
+
+
+              public function getExecutivesummaryback($id){
+          $project=Employerproject::where('id',$id)->get();
+
+      $intendeduse=new Intendeduse;
+    return view('company.executive_summary',['intendeduses'=> $intendeduse])
+    ->with('title','Executive Summary')
+     ->with('projectId', $id)
+
+    ->with('area',$project[0]->area)
+    ->with('physical_conditions',$project[0]->physical_conditions);
+
+
+        }
+
+
+
+
+          public function getProjectdescback($id){
+          $project=Employerproject::where('id',$id)->get();
+
+  $propertycategories= new Propertycategory;
+
+   $names=Employerproject::where('id',$id)->get();
+
+    return view('company.project_description',['propertycategories'=>$propertycategories])->with('title','Project Description')
+      ->with('projectId',$id)
+      ->with('title','Project Description')
+      ->with('names', $names[0]->first_name.' '.$names[0]->last_name)
+      ->with('date',$project[0]->created_time)
+      ->with('upi_no',$project[0]->upi_no)
+      ->with('plot_no',$project[0]->plot_no)
+      ->with('is_open_market_value',$project[0]->is_open_market_value)
+      ->with('is_forced_sale_value',$project[0]->is_forced_sale_value)
+      ->with('is_insurable_value',$project[0]->is_insurable_value);
+
+     
+
+        }
+
+
+            public function getNewprojectback($id){
+          $project=Employerproject::where('id',$id)->get();
+
+ return view('company.NewProject')->with('title','NewProject')
+      ->with('projectId',$id)
+      ->with('title','New Project')
+
+      ->with('first_name',$project[0]->first_name)
+      ->with('last_name',$project[0]->last_name)
+      ->with('email',$project[0]->email)
+      ->with('telephone',$project[0]->telephone)
+      ->with('id_card',$project[0]->id_card);
+
+
+        }
+
+
 
 }

@@ -74,18 +74,22 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <body class="cbp-spmenu-push">
   <div class="main-content">
     <!--left-fixed -navigation-->
-    
-
-<!-- @yield('side_bar') -->
-
+    <!-- @yield('side_bar') -->
 
 @if($title=='Dashboard')
-@include('common.dashboard_sidebar')
-@else
-@include('common.sidebar')
+
+   @include('common.dashboard_sidebar')
+
+@elseif($title=='Valuer Dashboard')
+
+   @include('common.dashboard_sidebar_valuer')
+
+
+   @else
+
+
+   @include('common.sidebar')
 @endif
-
-
 
     <!--left-fixed -navigation-->
     <!-- header-starts -->
@@ -100,6 +104,13 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
             <h1>ValuatePro</h1>
             <span>Make the right move</span>
           </a>
+        </div>
+        <div>
+        @if(isset($projectId))
+        {{$projectId}}
+        @else
+        {{0}}
+        @endif
         </div>
         <!--//logo-->
         <!--search-box-->
@@ -268,15 +279,15 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                   </span> 
                   <div class="user-name">
                     <p> 
-                    @if(auth()->guard('employers')->check())
+                        @if(auth()->guard('employers')->check())
 
-                    {{auth()->guard('employers')->user()->first_name}} 
-                    @endif
-                     @if(Auth::check())
-                     {{Auth::user()->first_name}}
-                      @endif
+                        {{auth()->guard('employers')->user()->first_name}} 
+                        @endif
+                         @if(Auth::check())
+                         {{Auth::user()->first_name}}
+                          @endif
 
-
+                      
                     </p>
 
                     <span>

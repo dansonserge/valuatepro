@@ -6,10 +6,9 @@
 <div class="col-md-6">
   
   @include('common.login-error')
-                   <div class="form_header"><h2>Valuator Account</h2></div>
-
+          <div class="form_header"><h2>Employer Account</h2></div>
            <div class="login">
-           {!! Form::open(array('url'=>'emp/signin')) !!} 
+           {!! Form::open(array('url'=>'cmp/signin')) !!} 
                  
 
                   
@@ -43,6 +42,7 @@
 </div>
 <div class="col-md-3"></div>
 
+<br><br><br>
 
            
            @endsection

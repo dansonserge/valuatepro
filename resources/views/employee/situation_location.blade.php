@@ -11,7 +11,7 @@
 <label for="focusedinput" class="col-sm-12 control-label">Level of development is the area<br><p class="help-block"><i>Development determinant: </i></p></label>
 				
 
-                				     {{Form::open(array('url'=>'cmp/situationlocation'))}}
+                				     {{Form::open(array('url'=>'emp/situationlocation'))}}
 			
                 <div class="row">
 
@@ -342,7 +342,7 @@
         
         </div>
         <div class="col-sm-4">
-                <a class="btn btn-primary next_section" href='{{URL::to("cmp/constructiondetailsback/$projectId")}}'>
+                <a class="btn btn-primary next_section" href='{{URL::to("emp/constructiondetailsback/$projectId")}}'>
                  <i class=" fa fa-arrow-circle-left fa-lg" aria-hidden="true"></i>  Back
                  </a>
 <button class="btn btn-primary next_section" type="submit">

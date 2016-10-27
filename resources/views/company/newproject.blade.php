@@ -22,7 +22,7 @@
             </div>
             <div class="sign-up2">
               
-                    {{ Form::text('first_name')}}
+                     {{ Form::text('first_name',null,array('class'=>'form-control1', 'id'=>'focusedinput','placeholder'=>$first_name))}}
               
             </div>
             <div class="clearfix"> </div>
@@ -33,7 +33,7 @@
             </div>
             <div class="sign-up2">
              
-           {{ Form::text('last_name')}}
+           {{ Form::text('last_name',null,array('class'=>'form-control1', 'id'=>'focusedinput','placeholder'=>$last_name))}}
              
             </div>
             <div class="clearfix"> </div>
@@ -44,7 +44,8 @@
             </div>
             <div class="sign-up2">
              
-                 {{ Form::text('email')}}
+                 {{ Form::text('email',null,array('class'=>'form-control1', 'id'=>'focusedinput','placeholder'=>$email))}}
+             
       
             </div>
             <div class="clearfix"> </div>
@@ -54,8 +55,8 @@
               <h4>Telephone Number* :</h4>
             </div>
             <div class="sign-up2">
-              
-                 {{ Form::text('telephone')}}
+             
+                  {{ Form::text('telephone',null,array('class'=>'form-control1', 'id'=>'focusedinput','placeholder'=>$telephone))}}
 
              
             </div>
@@ -67,7 +68,10 @@
             </div>
             <div class="sign-up2">
               
-                 {{ Form::text('id_card')}}
+                     {{ Form::text('id_card',null,array('class'=>'form-control1', 'id'=>'focusedinput','placeholder'=>$id_card))}}
+
+
+
                  <div class="row" class="col-md-4 ">
                 <button class="btn btn-primary next_section" type="submit">
                     Continue <i class="fa fa-arrow-circle-right fa-lg" aria-hidden="true"></i>

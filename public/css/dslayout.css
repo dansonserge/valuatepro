@@ -95,8 +95,8 @@ button#showLeftPush:hover {
     height: 100%;
     top: 76px;
     z-index: 1000;
-    background-color:#006177;
-  padding: 2em 0;
+    background-color:red;
+    padding: 0.5em 0;
 }
 .cbp-spmenu-left {
     left: 0;
@@ -132,7 +132,7 @@ button#showLeftPush:hover {
 /*--//push-menu-css--*/
 /*--side-menu--*/
 .sidebar ul li{
-   margin-bottom: 1em;
+   margin-bottom: 5px;
 }
 .sidebar ul li a {
     color: #FFFFFF;
@@ -8174,4 +8174,43 @@ h4.title3 {
 
 .modal-footer {
   background: #fff;
+}
+
+.cbp-spmenu-vertical {
+     width: 309px;
+    height: 100%;
+    top: 76px;
+    z-index: 1000;
+    background-color:#006177;
+    padding: 0.8em 0;
+}
+
+.nav > li > a {
+  padding: 8px 7px;
+}
+
+
+
+@media screen and (max-width: 400px) {
+    
+}
+
+@media screen and (min-width: 401px) and (max-width: 720px) {
+    
+}
+
+@media screen and (min-width: 721px) and (max-width: 1280px) {
+    
+}
+
+@media screen and (min-width: 1281px) and (max-width: 1440px) {
+    
+}
+
+@media screen and (min-width: 1441px) and (max-width: 1920px) {
+    
+}
+
+@media screen and (min-width: 1921px) {
+    
 }

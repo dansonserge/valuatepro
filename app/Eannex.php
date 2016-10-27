@@ -3,18 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Validator;
 
-class Mainresidential extends Model
+class Eannex extends Model
 {
-
-
-
-
-	protected $table='mainresidentials';
+   
+	protected $table='eannexes';
     protected $fillable = [
       'project_id','area','construction_year'
-
     ];
 
 
@@ -22,8 +17,7 @@ class Mainresidential extends Model
     
      'project_id'=>'required', 
      'area'=>'required',
-    'construction_year'=>'required'
-
+     'construction_year'=>'required'
   ];
    
     protected static function validate($data){
@@ -36,5 +30,12 @@ class Mainresidential extends Model
           public function employerproject(){
 		return $this->belongsTo('App\Employerproject');
 	            }
-	            
+
+
+	             public function employeeproject(){
+		return $this->belongsTo('App\Employeeproject');
+	}
+
+
+	
 }

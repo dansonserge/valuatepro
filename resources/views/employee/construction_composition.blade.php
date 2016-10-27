@@ -1,30 +1,32 @@
 @extends('default.main')
 
-
 @section('content')
-    
+
+
+
 <div class="row">
 
-      <h3 class="title1">Construction details:</h3>
+      <h3 class="title1">Construction composition</h3>
 
- <div class="row">
+</div>
 
-     {{Form::open(array('url'=>'cmp/constructiondetails'))}}
+
+
+<div class="row">
+
+     {{Form::open(array('url'=>'emp/constructioncomposition'))}}
           <div class="control-group">
-
-
                     <label for="focusedinput" class="control-label">Main residential house</label>
                     <div class="controls">
                     <div class="input-group">
 
      
-                    <textarea name="constdet_mainres" cols="65" rows="5">
-                      
-                      @if(isset($construction_details_mainresidentials))
-                       {{$construction_details_mainresidentials}}
+                    <textarea name="compdet_mainres"  class="construction_comp" cols="65" rows="5">
+                      @if(isset($cons_composition_details_mainresidentials))
+                       {{$cons_composition_details_mainresidentials}}
                       @endif
                     </textarea>
-                    </div><p class="help-block"><i>Please enter the main residential house details.</i></p>
+                    </div><p class="help-block"><i>Please enter the main residential house composition details.</i></p>
                     </div>
      
          
@@ -37,12 +39,14 @@
                     <div class="input-group">
 
   
-                    <textarea name="constdet_annex" cols="65" rows="5">
-                      @if(isset($construction_details_annexes))
-                       {{$construction_details_annexes}}
+                    <textarea name="compdet_annex" class="construction_comp" cols="65" rows="5">
+                      
+
+                      @if(isset($cons_composition_details_annexes))
+                       {{$cons_composition_details_annexes}}
                       @endif
                     </textarea>
-                    </div><p class="help-block"><i>Please enter the Annex details.</i></p>
+                    </div><p class="help-block"><i>Please enter the Annex composition details.</i></p>
                     </div>
                     </div>
 
@@ -54,11 +58,10 @@
         
         </div>
         <div class="col-sm-4">
-                 <a class="btn btn-primary next_section" href='{{URL::to("cmp/propertydetailsback/$projectId")}}'>
+    <a class="btn btn-primary next_section" href='{{URL::to("cmp/situationlocationback/$projectId")}}'>
                  <i class=" fa fa-arrow-circle-left fa-lg" aria-hidden="true"></i>  Back
                  </a>
-
-     <button class="btn btn-primary next_section" type="submit">
+<button class="btn btn-primary next_section" type="submit">
                     Continue <i class="fa fa-arrow-circle-right fa-lg" aria-hidden="true"></i>
                    </button>
         </div>
@@ -67,13 +70,10 @@
         </div>
           
      {{Form::close()}}
- 	 
+   
  </div>
  </div>
  </div>
- </div>
-
-
 
 
 

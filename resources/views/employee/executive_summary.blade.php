@@ -9,10 +9,10 @@
 @include('common.notification')
 
 
-{{ Form::open(array('url'=>'cmp/projectexec')) }} 
+{{ Form::open(array('url'=>'emp/projectexec')) }} 
                {{ Form::hidden('_token', csrf_token() )  }}
 
-              {{Form::hidden('company_id', auth()->guard('employers')->user()->id) }}
+              {{Form::hidden('company_id', Auth::user()->company_id) }}
               {{Form::hidden('project_id', $projectId)}}
 
      

@@ -77,7 +77,7 @@ $y=0;
               <td>{{$mainresidential->area}}</td>
 
               <td>
-               {{ Form::open(array('url'=>'cmp/mainresidentialdelete')) }} 
+               {{ Form::open(array('url'=>'emp/mainresidentialdelete')) }} 
                {{ Form::hidden('mainresidential_id', $mainresidential->id )  }}
                {{ Form::hidden('project_id', $mainresidential->project_id )  }}
                <input type="submit" hidden class="delegte_btn">
@@ -121,7 +121,7 @@ $y=0;
               <td>{{$annex->construction_year}}</td>
               <td>{{$annex->area}}</td>
               <td>
-               {{ Form::open(array('url'=>'cmp/annexdelete')) }} 
+               {{ Form::open(array('url'=>'emp/annexdelete')) }} 
                {{ Form::hidden('annex_id', $annex->id )  }}
                {{ Form::hidden('project_id', $annex->project_id )  }}
                <input type="submit" hidden class="delegte_btn">
@@ -147,14 +147,14 @@ $y=0;
 
         <div class="row" class="col-md-4 ">
  
-                  {{Form::open(array('url'=>'cmp/constructiondetailsview')) }} 
+                  {{Form::open(array('url'=>'emp/constructiondetailsview')) }} 
                    {{Form::hidden('projectid',$projectId)}}
                         <div class="col-sm-4">
         
         </div>
         <div class="col-sm-4">
 
-                 <a class="btn btn-primary next_section" href='{{URL::to("cmp/executivesummaryback/$projectId")}}'>
+                 <a class="btn btn-primary next_section" href='{{URL::to("emp/executivesummaryback/$projectId")}}'>
                  <i class=" fa fa-arrow-circle-left fa-lg" aria-hidden="true"></i>  Back
                  </a>
 
@@ -184,7 +184,7 @@ $y=0;
          
             
 
-                    {{ Form::open(array('url'=>'cmp/addmainresidential')) }} 
+                    {{ Form::open(array('url'=>'emp/addmainresidential')) }} 
 
 
                       <label for="focusedinput" class="control-label">Construction Year</label>
@@ -307,7 +307,7 @@ $y=0;
          
             
 
-                    {{ Form::open(array('url'=>'cmp/addannex')) }} 
+                    {{ Form::open(array('url'=>'emp/addannex')) }} 
 
 
 

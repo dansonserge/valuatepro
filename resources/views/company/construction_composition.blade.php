@@ -21,7 +21,11 @@
                     <div class="input-group">
 
      
-                    <textarea name="compdet_mainres" cols="65" rows="5"></textarea>
+                    <textarea name="compdet_mainres"  class="construction_comp" cols="65" rows="5">
+                      @if(isset($cons_composition_details_mainresidentials))
+                       {{$cons_composition_details_mainresidentials}}
+                      @endif
+                    </textarea>
                     </div><p class="help-block"><i>Please enter the main residential house composition details.</i></p>
                     </div>
      
@@ -35,7 +39,13 @@
                     <div class="input-group">
 
   
-                    <textarea name="compdet_annex" cols="65" rows="5"></textarea>
+                    <textarea name="compdet_annex" class="construction_comp" cols="65" rows="5">
+                      
+
+                      @if(isset($cons_composition_details_annexes))
+                       {{$cons_composition_details_annexes}}
+                      @endif
+                    </textarea>
                     </div><p class="help-block"><i>Please enter the Annex composition details.</i></p>
                     </div>
                     </div>
@@ -48,9 +58,9 @@
         
         </div>
         <div class="col-sm-4">
-                <button class="btn btn-primary next_section" type="submit">
-                 <i class=" fa fa-arrow-circle-left fa-lg" aria-hidden="true"></i>  Back 
-                   </button>
+    <a class="btn btn-primary next_section" href='{{URL::to("cmp/situationlocationback/$projectId")}}'>
+                 <i class=" fa fa-arrow-circle-left fa-lg" aria-hidden="true"></i>  Back
+                 </a>
 <button class="btn btn-primary next_section" type="submit">
                     Continue <i class="fa fa-arrow-circle-right fa-lg" aria-hidden="true"></i>
                    </button>
@@ -64,4 +74,7 @@
  </div>
  </div>
  </div>
+
+
+
 @endsection

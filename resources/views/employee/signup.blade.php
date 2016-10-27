@@ -11,17 +11,17 @@
  <div class="signup-div">
            
            @include('common.errors');
-            {!! Form::open(array('url'=>'emp/signup')) !!} 
+            {!! Form::open(array('url'=>'cmp/signup')) !!} 
                {!! Form::hidden('_token', csrf_token() )  !!}
-             
-                 <div class="col-md-12">
+              
+                 <div class="col-md-8">
 
            
                  <fieldset>
                    <legend>Personal Information</legend>
                   <div class="form-group">
                       
-               {!! Form::select('employer_id',$employer->lists('company_name','id'), null, array('class'=>'form-control', 'placeholder'=>'Company','div'=>'category')) !!}
+               {!! Form::text('company_name','',array('class'=>'form-control','placeholder'=>'Company Name')) !!}
                     </div>
                     
 
@@ -40,14 +40,20 @@
                     </div>
 
 
-                    
-                    
+                    <div class="form-group">
+                      
+               {!! Form::text('professional_status','',array('class'=>'form-control','placeholder'=>'Professional status')) !!}
+                    </div>
+                    <div class="form-group">
+                      
+               {!! Form::text('reg_no_in_certified_valuers','',array('class'=>'form-control','placeholder'=>'Registration number in certified valuers')) !!}
+                    </div>
                     
                    
-                 </fieldset>
                  </div>
+                 </fieldset>
 
-                   <!-- <div class="col-md-4">
+                   <div class="col-md-4">
                     <fieldset>
                  <legend>Location</legend>
                   <div class="form-group">
@@ -71,10 +77,13 @@
                {!! Form::select('village',array('Kabuga'=>'Kabuga','Nyakabanda'=>'Nyakabanda','Kabeza'=>'Kabeza'), null, array('class'=>'form-control', 'placeholder'=>'Village')) !!}
                     </div>
 
-                    
+                    <div class="form-group">
+                      
+               {!! Form::text('campany_address','',array('class'=>'form-control','placeholder'=>'Campany Address')) !!}
+                    </div>
                     </fieldset>
                      
-                   </div> -->
+                   </div>
                    <div class="col-md-12">
 
 
@@ -98,30 +107,20 @@
                 {!! Form::submit('Sign up', array('class'=>'btn btn-primary btn-block')) !!}
 
            {!! Form::close()!!}
+       
                       <p>By signing up, you agree to our <b> Terms & Privacy Policy.</b></p>
 
                  </div>
 
                  
                    </div>
-                   
+                
+            
 
-
-           
-                    
-
-
-
-                    
-		      
-		        
-		        
-		        
-
-		        
+            
            </div>
-</div>
 
+</div>
 
 <div class="col-md-3">
   

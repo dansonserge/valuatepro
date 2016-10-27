@@ -16,6 +16,8 @@ class CreateAnnexesTable extends Migration
            $table->increments('id');
             $table->integer('project_id')->unsigned();
             $table->integer('area');
+            $table->integer('construction_year');
+
             $table->timestamps();
             });
 

@@ -2,7 +2,10 @@
 
 
 
-ValuatePro is a software that helps...
+ValuatePro is a software that helps the property valuation in Rwanda.
+
+Certified valuers can use valuate pro to record and calculate a value of a property.
+this system has been developed using laravel
 
 ## Official Documentation
 
